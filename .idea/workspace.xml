@@ -7,6 +7,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1ZWRV39JIExDWn8PgrA0jE07o4E" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -16,7 +23,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scrapy-airflow/scrapy-airflow" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy-airflow" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy-airflow" />
+      <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy\crawler\spiders" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -28,7 +44,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584952883157</updated>
-      <workItem from="1584952900329" duration="227000" />
+      <workItem from="1584952900329" duration="2887000" />
     </task>
     <servers />
   </component>

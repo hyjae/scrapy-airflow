@@ -1,0 +1,98 @@
+  ____________       _____________
+ ____    |__( )_________  __/__  /________      __
+____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+ _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+[2020-03-17 15:46:06,656] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2020-03-17 15:46:06,668] {scheduler_job.py:1344} INFO - Starting the scheduler
+[2020-03-17 15:46:06,668] {scheduler_job.py:1352} INFO - Running execute loop for -1 seconds
+[2020-03-17 15:46:06,669] {scheduler_job.py:1353} INFO - Processing each file at most -1 times
+[2020-03-17 15:46:06,669] {scheduler_job.py:1356} INFO - Searching for files in /home/airflow/airflow/dags
+[2020-03-17 15:46:06,673] {scheduler_job.py:1358} INFO - There are 24 files in /home/airflow/airflow/dags
+[2020-03-17 15:46:06,674] {scheduler_job.py:1409} INFO - Resetting orphaned tasks for active dag runs
+[2020-03-17 15:46:06,684] {dag_processing.py:556} INFO - Launched DagFileProcessorManager with pid: 18700
+[2020-03-17 15:46:06,688] {settings.py:54} INFO - Configured default timezone <Timezone [UTC]>
+[2020-03-17 15:46:06,701] {dag_processing.py:758} WARNING - Because we cannot use more than 1 thread (max_threads = 2) when using sqlite. So we set parallelism to 1.
+  ____________       _____________
+ ____    |__( )_________  __/__  /________      __
+____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+ _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+[2020-03-17 15:46:15,890] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2020-03-17 15:46:15,903] {scheduler_job.py:1344} INFO - Starting the scheduler
+[2020-03-17 15:46:15,904] {scheduler_job.py:1352} INFO - Running execute loop for -1 seconds
+[2020-03-17 15:46:15,905] {scheduler_job.py:1353} INFO - Processing each file at most -1 times
+[2020-03-17 15:46:15,905] {scheduler_job.py:1356} INFO - Searching for files in /home/airflow/airflow/dags
+[2020-03-17 15:46:15,910] {scheduler_job.py:1358} INFO - There are 24 files in /home/airflow/airflow/dags
+[2020-03-17 15:46:15,911] {scheduler_job.py:1409} INFO - Resetting orphaned tasks for active dag runs
+[2020-03-17 15:46:15,924] {dag_processing.py:556} INFO - Launched DagFileProcessorManager with pid: 18723
+[2020-03-17 15:46:15,929] {settings.py:54} INFO - Configured default timezone <Timezone [UTC]>
+[2020-03-17 15:46:15,944] {dag_processing.py:758} WARNING - Because we cannot use more than 1 thread (max_threads = 2) when using sqlite. So we set parallelism to 1.
+  ____________       _____________
+ ____    |__( )_________  __/__  /________      __
+____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+ _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+[2020-03-17 15:46:42,716] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2020-03-17 15:46:42,730] {scheduler_job.py:1344} INFO - Starting the scheduler
+[2020-03-17 15:46:42,731] {scheduler_job.py:1352} INFO - Running execute loop for -1 seconds
+[2020-03-17 15:46:42,732] {scheduler_job.py:1353} INFO - Processing each file at most -1 times
+[2020-03-17 15:46:42,732] {scheduler_job.py:1356} INFO - Searching for files in /home/airflow/airflow/dags
+[2020-03-17 15:46:42,737] {scheduler_job.py:1358} INFO - There are 24 files in /home/airflow/airflow/dags
+[2020-03-17 15:46:42,737] {scheduler_job.py:1409} INFO - Resetting orphaned tasks for active dag runs
+[2020-03-17 15:46:42,750] {dag_processing.py:556} INFO - Launched DagFileProcessorManager with pid: 18755
+[2020-03-17 15:46:42,757] {settings.py:54} INFO - Configured default timezone <Timezone [UTC]>
+[2020-03-17 15:46:42,771] {dag_processing.py:758} WARNING - Because we cannot use more than 1 thread (max_threads = 2) when using sqlite. So we set parallelism to 1.
+[2020-03-19 01:09:50,314] {base_job.py:205} ERROR - SchedulerJob heartbeat got an exception
+Traceback (most recent call last):
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/airflow/jobs/base_job.py", line 172, in heartbeat
+    session.merge(self)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2128, in merge
+    _resolve_conflict_map=_resolve_conflict_map,
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 2201, in _merge
+    merged = self.query(mapper.class_).get(key[1])
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 1004, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 1119, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/loading.py", line 284, in load_on_pk_identity
+    return q.one()
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3358, in one
+    ret = self.one_or_none()
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3327, in one_or_none
+    ret = list(self)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3403, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3428, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 984, in execute
+    return meth(self, multiparams, params)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/sql/elements.py", line 293, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1103, in _execute_clauseelement
+    distilled_params,
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1288, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1482, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 178, in raise_
+    raise exception
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/airflow/airflow-env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 588, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked
+[SQL: SELECT job.id AS job_id, job.dag_id AS job_dag_id, job.state AS job_state, job.job_type AS job_job_type, job.start_date AS job_start_date, job.end_date AS job_end_date, job.latest_heartbeat AS job_latest_heartbeat, job.executor_class AS job_executor_class, job.hostname AS job_hostname, job.unixname AS job_unixname 
+FROM job 
+WHERE job.id = ? AND job.job_type IN (?)]
+[parameters: (5, 'SchedulerJob')]
+(Background on this error at: http://sqlalche.me/e/e3q8)

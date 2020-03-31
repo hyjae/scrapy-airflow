@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 import os
-import glob
 import scrapy
-import inspect
 import importlib
-from scrapy_airflow.config import ConfigLoader
+import scrapy.signals
 from scrapy.crawler import CrawlerProcess
+from config import ConfigLoader
 
 
 class SpiderLoader:
@@ -18,7 +16,7 @@ class SpiderLoader:
         :return: spider module object
         """
         config_loader = ConfigLoader()
-        spider_root = config_loader['spider_path']
+        spider_root = config_loader.get_setting('spider_path')
         spider_path = os.path.join(spider_root, spider_name)
         spider_module = SpiderLoader.module_loader(spider_path)
         return spider_module
@@ -30,7 +28,8 @@ class SpiderLoader:
 
         :param py_dir: an absolute path directory where a module is located
         """
-        importlib.import_module(py_dir)
+
+        return importlib.import_module(py_dir)
         # getattr(module)
 
         # package = 'scrapy.crawler.spiders'
@@ -53,45 +52,22 @@ class SpiderLoader:
         # return modules
 
 
-def runner(spider):
-    process = CrawlerProcess(settings={
-        'FEED_FORMAT': 'json',
-        'FEED_URI': 'items.json'
-    })
+class ScrapyRunner:
 
-    process.crawl(spider)
-    process.start()
+    def __init__(self, spider_module):
+        self.result = []
+        self.spider_module = spider_module
+        self.process = CrawlerProcess()
 
-import json
+    def _spider_closed(self, spider):
+        stat = spider.crawler.stats._stats
+        if 'log_count/ERROR' in stat.keys():
+            self.result.append(True)
+        self.result.append(False)
 
-from twisted.internet import reactor
-from scrapy.crawler import Crawler
-from scrapy import log, signals
-from scrapy.utils.project import get_project_settings
-from scrapy_airflow.scrapy.crawler.spiders.us_exchange import *
-
-class MyPipeline(object):
-    def process_item(self, item, spider):
-        results.append(dict(item))
-
-results = []
-def spider_closed(spider):
-    print(results)
-
-# set up spider
-spider = USExchangeSpider()
-
-# set up settings
-settings = get_project_settings()
-settings.overrides['ITEM_PIPELINES'] = {'__main__.MyPipeline': 1}
-
-# set up crawler
-crawler = Crawler(settings)
-crawler.signals.connect(spider_closed, signal=signals.spider_closed)
-crawler.configure()
-crawler.crawl(spider)
-
-# start crawling
-crawler.start()
-log.start()
-reactor.run()
+    def run_process(self):
+        self.process.crawl(self.spider_module)
+        for p in self.process.crawlers:
+            p.signals.connect(self._spider_closed, signal=scrapy.signals.spider_closed)
+        self.process.start()
+        return self.result

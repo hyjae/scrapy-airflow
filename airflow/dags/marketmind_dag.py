@@ -18,5 +18,3 @@ with DAG(dag_id='marketmind_dag', schedule_interval='0 0 * * *', default_args=de
                                   requirements='scrapy==2.0.1',
                                   python_callable=scrapy_runner.run_process(),
                                   spider_name='us_exchange')
-
-    t1

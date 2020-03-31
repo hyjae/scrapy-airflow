@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 import os
 import glob
 import scrapy
 import inspect
 import importlib
-from scrapy_airflow.config import Config
+from scrapy_airflow.config import ConfigLoader
 from scrapy.crawler import CrawlerProcess
 
 
@@ -12,9 +13,13 @@ class SpiderLoader:
 
     @classmethod
     def get_spiders(cls):
-        cur_path = os.path.dirname(__file__)
-        spider_dir = os.path.join(cur_path, 'spiders')
-        config_dir = os.path.join(cur_path, 'config.cfg')
+        config_loader = ConfigLoader()
+        spider_path = config_loader['spider_path']
+
+        curr_path = os.path.dirname(__file__)
+        
+        spider_dir = os.path.join(curr_path, 'spiders')
+        config_dir = os.path.join(curr_path, 'config.cfg')
 
         cls.spiders = cls.module_loader(spider_dir)
 
@@ -22,24 +27,19 @@ class SpiderLoader:
             "By default, each spider dict has keys 'spider' and 'args'"
             cls.spiders[key] = dict({'spider': cls.spiders[key]})
             cls.spiders[key]['args'] = list()
-        for key, value in Config().config.items():
+        for key, value in ConfigLoader().config.items():
             if key in cls.spiders:
                 cls.spiders[key].update(cls.set_args())
         return cls.spiders
-    #
-    # @staticmethod
-    # def set_args():
-    #     """Read all values from config and set as a dict in each spider instance"""
-    #     result = dict()
-    #     for key, value in Config().config.items():
-    #         if key == 'args':
-    #             file_path = os.path.join(os.path.join(os.path.dirname(__file__), 'files'))
-    #             file_path = os.path.join(file_path, value)
-    #             logger.info('Read args from %s' % file_path)
-    #             result[key] = utils.parse_csv(file_path)
-    #         else:
-    #             result[key] = value
-    #     return result
+
+    @staticmethod
+    def get_spider(spider_name):
+        """This function get a spider module from the given directoy in scrapy-airflow.cfg
+
+        :param spider_name: spider script name or spider name
+        :return: spider module object
+        """
+
 
     @staticmethod
     def module_loader(dir):
@@ -51,7 +51,7 @@ class SpiderLoader:
         modules = dict()
         package = 'scrapy.crawler.spiders'
 
-        config_loader = Config()
+        config_loader = ConfigLoader()
         config_loader.config
 
         for file in glob.glob(os.path.join(dir, '*.py')):

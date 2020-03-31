@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da9a2218-6855-438a-bcc3-ebdba7330a13" name="Default Changelist" comment="" />
+    <list default="true" id="da9a2218-6855-438a-bcc3-ebdba7330a13" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy_airflow/airflow/dags/queue_dag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy_airflow/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy_airflow/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy_airflow/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy_airflow/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapy_airflow/scrapy/crawler/spiders/investing.py" beforeDir="false" afterPath="$PROJECT_DIR$/scrapy_airflow/scrapy/crawler/spiders/investing.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +21,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZWRV39JIExDWn8PgrA0jE07o4E" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,14 +32,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../scrapy-airflow/scrapy-airflow" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy_airflow" />
       <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy-airflow" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy_airflow\airflow\dags" />
       <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy-airflow" />
       <recent name="C:\Developer\yjhnnn\scrapy-airflow\scrapy\crawler\spiders" />
     </key>
@@ -44,11 +58,26 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584952883157</updated>
-      <workItem from="1584952900329" duration="2887000" />
+      <workItem from="1584952900329" duration="8782000" />
+      <workItem from="1585614905713" duration="1656000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="616" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1585616301891">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585616301891" />
+    <state x="401" y="257" key="FileChooserDialogImpl" timestamp="1585095615781">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="401" y="257" key="FileChooserDialogImpl/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585095615781" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585011474749">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1585011474749" />
   </component>
 </project>

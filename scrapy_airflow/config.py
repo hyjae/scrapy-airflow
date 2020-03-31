@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import configparser
 from collections import OrderedDict
@@ -6,8 +7,8 @@ from collections import OrderedDict
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), 'scrapy-airflow.cfg')
 
 
-class Config(object):
-    """Singleton pattern config loader;
+class ConfigLoader(object):
+    """Singleton pattern config loader
     Once the object is created, it will reuse the same setting!
     """
 
@@ -26,6 +27,9 @@ class Config(object):
                 self._load_config(CONFIG_FILE)
             except FileNotFoundError:
                 print('Config file %s does not exist!' % CONFIG_FILE)
+
+    def get_setting(self, key):
+        return self.config[key]
 
     def _load_config(self, filename):
         """Load config file and store them into dictionary
